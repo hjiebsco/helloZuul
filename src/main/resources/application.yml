@@ -4,7 +4,7 @@ zuul
       path: /**
       serviceId=helloService
 server:
-  port: 8081
+  port: 8082
 eureka:
   client:
     serviceUrl:

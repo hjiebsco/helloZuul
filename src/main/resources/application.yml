@@ -1,12 +1,11 @@
-zuul
-  routes
-    main
+zuul:
+  routes:
+    main:
       path: /**
-      serviceId=helloService
+      serviceId: helloService
 server:
   port: 8082
 eureka:
   client:
     serviceUrl:
       defaultZone: http://54.172.91.201:8761/eureka/
-

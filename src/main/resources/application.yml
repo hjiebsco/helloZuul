@@ -1,11 +1,24 @@
+spring:
+  application:
+    name: zuulServer
+    
+server:
+  port: 8081
+
 zuul:
   routes:
     main:
       path: /**
       serviceId: helloService
-server:
-  port: 8082
+      
 eureka:
   client:
+    registerWithEureka: false
+    fetchRegistry: true
     serviceUrl:
       defaultZone: http://54.172.91.201:8761/eureka/
+      
+helloService:
+  ribbon:
+    DeploymentContextBasedVipAddresses: helloService
+    NIWSServerListClassName: com.netflix.niws.loadbalancer.DiscoveryEnabledNIWSServerList

@@ -10,6 +10,7 @@ zuul:
     main:
       path: /**
       serviceId: helloService
+#      url: http://52.207.14.13:8081/
       
 eureka:
   client:

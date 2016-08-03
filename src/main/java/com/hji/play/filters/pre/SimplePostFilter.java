@@ -1,17 +1,18 @@
 package com.hji.play.filters.pre;
 
+import java.io.IOException;
 import java.util.Date;
 
-import javax.servlet.http.HttpServletRequest;
 import com.netflix.zuul.context.RequestContext;
 import com.netflix.zuul.ZuulFilter;
 
+import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class SimpleFilter extends ZuulFilter {
+public class SimplePostFilter extends ZuulFilter {
 
-	private static Logger log = LoggerFactory.getLogger(SimpleFilter.class);
+	private static Logger log = LoggerFactory.getLogger(SimplePostFilter.class);
 
 	@Override
 	public String filterType() {
@@ -30,10 +31,15 @@ public class SimpleFilter extends ZuulFilter {
 
 	@Override
 	public Object run() {
+		log.info("doing POST filter");
 		RequestContext ctx = RequestContext.getCurrentContext();
-		HttpServletRequest request = ctx.getRequest();
-		log.info(String.format("%s request to %s", request.getMethod(), request.getRequestURL().toString()));
-		ctx.setResponseBody(ctx.getResponseBody() + " (processed by a filter at " + new Date() + ")");
+		String originResponseBody = "";
+		try {
+			originResponseBody = IOUtils.toString(ctx.getResponseDataStream());
+		} catch (IOException e) {
+			log.error("Problem to get response", e);
+		}
+		ctx.setResponseBody(originResponseBody + " ---> (appended by a POST filter at " + new Date() + ")");
 		return null;
 	}
 

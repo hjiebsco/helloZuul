@@ -7,8 +7,8 @@ import org.springframework.context.annotation.Bean;
 
 import com.hji.play.filters.pre.SimpleFilter;
 
-@EnableZuulProxy
 @SpringBootApplication
+@EnableZuulProxy
 public class HelloZuulApplication {
 
 	public static void main(String[] args) {

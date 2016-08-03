@@ -1,5 +1,7 @@
 package com.hji.play.filters.pre;
 
+import java.util.Date;
+
 import javax.servlet.http.HttpServletRequest;
 import com.netflix.zuul.context.RequestContext;
 import com.netflix.zuul.ZuulFilter;
@@ -9,30 +11,30 @@ import org.slf4j.LoggerFactory;
 
 public class SimpleFilter extends ZuulFilter {
 
-  private static Logger log = LoggerFactory.getLogger(SimpleFilter.class);
+	private static Logger log = LoggerFactory.getLogger(SimpleFilter.class);
 
-  @Override
-  public String filterType() {
-    return "pre";
-  }
+	@Override
+	public String filterType() {
+		return "post";
+	}
 
-  @Override
-  public int filterOrder() {
-    return 1;
-  }
+	@Override
+	public int filterOrder() {
+		return 1;
+	}
 
-  @Override
-  public boolean shouldFilter() {
-    return true;
-  }
+	@Override
+	public boolean shouldFilter() {
+		return true;
+	}
 
-  @Override
-  public Object run() {
-    RequestContext ctx = RequestContext.getCurrentContext();
-    HttpServletRequest request = ctx.getRequest();
-    System.out.println("got here");
-    log.info(String.format("%s request to %s", request.getMethod(), request.getRequestURL().toString()));
-    return null;
-  }
+	@Override
+	public Object run() {
+		RequestContext ctx = RequestContext.getCurrentContext();
+		HttpServletRequest request = ctx.getRequest();
+		log.info(String.format("%s request to %s", request.getMethod(), request.getRequestURL().toString()));
+		ctx.setResponseBody(ctx.getResponseBody() + " (processed by a filter at " + new Date() + ")");
+		return null;
+	}
 
 }

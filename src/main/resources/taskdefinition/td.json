@@ -1,0 +1,18 @@
+{  
+   "family":"spike-zuul-helloZuul-task",
+   "containerDefinitions":[  
+      {  
+         "name":"spike-zuul-helloZull-container",
+         "image":"186926840374.dkr.ecr.us-east-1.amazonaws.com/spike/zull/helloservice",
+         "cpu":10,
+         "memory":300,
+         "portMappings":[  
+            {  
+               "hostPort":8082,
+               "containerPort":8082,
+               "protocol":"tcp"
+            }
+         ]
+      }
+   ]
+}

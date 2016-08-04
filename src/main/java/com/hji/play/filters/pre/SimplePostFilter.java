@@ -33,6 +33,9 @@ public class SimplePostFilter extends ZuulFilter {
 	public Object run() {
 		log.info("doing POST filter");
 		RequestContext ctx = RequestContext.getCurrentContext();
+		if (!"/".equals(ctx.getRequest().getContextPath())) {
+			return null;
+		}
 		String originResponseBody = "";
 		try {
 			originResponseBody = IOUtils.toString(ctx.getResponseDataStream());

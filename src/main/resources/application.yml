@@ -1,6 +1,6 @@
 spring:
   application:
-    name: zuulServer
+    name: helloZuul
     
 server:
   port: 8082
@@ -10,10 +10,10 @@ zuul:
     main:
       path: /**
       serviceId: helloService
-#      url: http://52.207.14.13:8081/
       
 eureka:
   client:
     registerWithEureka: false
     serviceUrl:
-      defaultZone: http://54.172.91.201:8761/eureka/
+      defaultZone: http://52.86.121.106:8761/eureka/
+      

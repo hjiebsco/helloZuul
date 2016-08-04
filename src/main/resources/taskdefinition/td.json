@@ -3,7 +3,7 @@
    "containerDefinitions":[  
       {  
          "name":"spike-hello-zuul",
-         "image":"186926840374.dkr.ecr.us-east-1.amazonaws.com/spike/hello/zull",
+         "image":"186926840374.dkr.ecr.us-east-1.amazonaws.com/spike/hello/zuul",
          "cpu":10,
          "memory":300,
          "portMappings":[  

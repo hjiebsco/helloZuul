@@ -32,6 +32,12 @@ public class SimplePostFilter extends ZuulFilter {
 	@Override
 	public Object run() {
 		log.info("doing POST filter");
+		return null;
+	}
+	
+	// disable the test method
+	public Object run2() {
+		log.info("doing POST filter");
 		RequestContext ctx = RequestContext.getCurrentContext();
 //		ctx.getZuulResponseHeaders().get("requestURI")
 //		System.out.println("[" + ctx.getRequest().getContextPath() + "]");

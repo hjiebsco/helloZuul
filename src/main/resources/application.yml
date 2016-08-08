@@ -8,12 +8,16 @@ server:
 zuul:
   routes:
     main:
-      path: /**
+      path: /search/**
+      serviceId: search-service
+    hello:
+      path: /hello/**
       serviceId: helloService
       
 eureka:
   client:
     registerWithEureka: false
     serviceUrl:
-      defaultZone: http://52.86.121.106:8761/eureka/
+      #defaultZone: http://52.86.121.106:8761/eureka/
+      defaultZone: http://ec2-52-86-121-106.compute-1.amazonaws.com:8761/eureka/
       

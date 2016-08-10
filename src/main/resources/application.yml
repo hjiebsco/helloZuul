@@ -16,6 +16,10 @@ zuul:
     hello-service:
       path: /hello/**
       serviceId: helloService
+
+ribbon:
+  ServerListRefreshInterval: 5000
+  connectionFailureCountThreshold: 1
       
 eureka:
   client:

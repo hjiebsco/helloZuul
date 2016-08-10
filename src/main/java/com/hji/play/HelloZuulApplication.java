@@ -14,7 +14,6 @@ import com.hji.play.filters.pre.SimpleRouteFilter;
 public class HelloZuulApplication {
 
 	public static void main(String[] args) {
-		System.out.println("a new version");
 		SpringApplication.run(HelloZuulApplication.class, args);
 	}
 

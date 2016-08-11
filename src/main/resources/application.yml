@@ -19,9 +19,9 @@ zuul:
 
 ribbon:
   MaxAutoRetrie: 1
-  MaxAutoRetriesNextServer: 3
+  MaxAutoRetriesNextServer: 2
   OkToRetryOnAllOperations: true
-  ServerListRefreshInterval: 2000
+  ServerListRefreshInterval: 1000
   connectionFailureCountThreshold: 2
   
       

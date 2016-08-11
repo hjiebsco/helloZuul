@@ -18,11 +18,11 @@ zuul:
       serviceId: helloService
 
 ribbon:
-  MaxAutoRetrie: 100
-  MaxAutoRetriesNextServer: 100
+  MaxAutoRetrie: 1
+  MaxAutoRetriesNextServer: 3
   OkToRetryOnAllOperations: true
-  ServerListRefreshInterval: 500
-  connectionFailureCountThreshold: 3
+  ServerListRefreshInterval: 2000
+  connectionFailureCountThreshold: 2
   
       
 eureka:

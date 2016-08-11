@@ -16,6 +16,9 @@ zuul:
     hello-service:
       path: /hello/**
       serviceId: helloService
+    src-poc:
+      path: /src-poc/**
+      serviceId: src-poc
 
 ribbon:
   MaxAutoRetrie: 1

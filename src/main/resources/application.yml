@@ -18,8 +18,12 @@ zuul:
       serviceId: helloService
 
 ribbon:
-  ServerListRefreshInterval: 5000
-  connectionFailureCountThreshold: 1
+  MaxAutoRetrie: 100
+  MaxAutoRetriesNextServer: 100
+  OkToRetryOnAllOperations: true
+  ServerListRefreshInterval: 500
+  connectionFailureCountThreshold: 3
+  
       
 eureka:
   client:

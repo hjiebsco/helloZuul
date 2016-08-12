@@ -7,8 +7,8 @@ server:
 
 #ignoredPatterns does not work
 zuul:
-  ignoredServices: "*"
-  ignoredPatterns: /ok
+#  ignoredServices: "*"
+#  ignoredPatterns: /ok
   routes:
     search-service:
       path: /search/**
@@ -19,18 +19,22 @@ zuul:
     src-poc:
       path: /src-poc/**
       serviceId: src-poc
+    src-poc-cont:
+      path: /src-poc-cont/**
+      serviceId: src-poc-cont
 
-ribbon:
-  MaxAutoRetrie: 1
-  MaxAutoRetriesNextServer: 2
-  OkToRetryOnAllOperations: true
-  ServerListRefreshInterval: 1000
-  connectionFailureCountThreshold: 2
+#ribbon:
+#  MaxAutoRetrie: 1
+#  MaxAutoRetriesNextServer: 2
+#  OkToRetryOnAllOperations: true
+#  ServerListRefreshInterval: 1000
+#  connectionFailureCountThreshold: 2
   
       
 eureka:
   client:
     registerWithEureka: false
+    fetchRegistry: true
     serviceUrl:
       #defaultZone: http://52.86.121.106:8761/eureka/
       defaultZone: http://ec2-52-86-121-106.compute-1.amazonaws.com:8761/eureka/

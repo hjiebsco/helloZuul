@@ -11,7 +11,7 @@ zuul:
 #  ignoredPatterns: /ok
   routes:
     search-service:
-      path: /search/**
+      path: /search-service/**
       serviceId: search-service
     hello-service:
       path: /hello/**

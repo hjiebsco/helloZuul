@@ -17,7 +17,7 @@ zuul:
       path: /hello/**
       serviceId: helloService
     src-poc:
-      path: /src-poc/**
+      path: /**
       serviceId: src-poc
     src-poc-cont:
       path: /src-poc-cont/**
